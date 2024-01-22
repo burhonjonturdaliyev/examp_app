@@ -1,3 +1,5 @@
+import 'package:examp_app/auth/register.dart';
+import 'package:examp_app/navigation/navigation_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -120,7 +122,13 @@ class _LoginPageState extends State<LoginPage> {
                       backgroundColor: Colors.red,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12))),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MyNavScreen(),
+                        ));
+                  },
                   child: const Text(
                     "Continue",
                     style: TextStyle(color: Colors.white),
@@ -128,14 +136,23 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 10,
               ),
-              RichText(
-                  text: const TextSpan(children: [
-                TextSpan(
-                    text: "Don't have a accaount? ",
-                    style: TextStyle(color: Colors.white)),
-                TextSpan(
-                    text: "SignUp ", style: TextStyle(color: Colors.white)),
-              ]))
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const RegisterPage()),
+                      (route) => false);
+                },
+                child: RichText(
+                    text: const TextSpan(children: [
+                  TextSpan(
+                      text: "Don't have a accaount? ",
+                      style: TextStyle(color: Colors.white)),
+                  TextSpan(
+                      text: "SignUp ", style: TextStyle(color: Colors.red)),
+                ])),
+              )
             ],
           ),
         ),

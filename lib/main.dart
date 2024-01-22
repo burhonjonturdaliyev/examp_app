@@ -1,8 +1,6 @@
 import 'package:examp_app/auth/login.dart';
 import 'package:flutter/material.dart';
 
-import 'navigation/navigation_screen.dart';
-
 void main() {
   runApp(const MyApp());
 }

@@ -1,3 +1,4 @@
+import 'package:examp_app/auth/login.dart';
 import 'package:flutter/material.dart';
 
 class Page2 extends StatelessWidget {
@@ -16,7 +17,14 @@ class Page2 extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LoginPage(),
+                    ),
+                    (route) => false);
+              },
               icon: const Icon(
                 Icons.logout,
                 color: Colors.red,
@@ -32,8 +40,9 @@ class Page2 extends StatelessWidget {
             child: CircleAvatar(
               backgroundColor: Colors.transparent,
               child: Icon(
-                Icons.person_2_rounded,
+                Icons.account_circle_outlined,
                 color: Colors.yellow,
+                size: 30,
               ),
             ),
           ),
